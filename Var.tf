@@ -44,7 +44,7 @@ variable "subnet_address_list_web_server" {
 }
 
 
-variable "Subnet_Name_app" {
+variable "subnet_Name_app" {
     description = "Please mention the Vnet  Name"
     type = string
     
