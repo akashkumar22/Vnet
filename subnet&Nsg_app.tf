@@ -4,7 +4,7 @@ resource "azurerm_subnet" "example_app" {
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = var.subnet_address_list__app
 
-  
+
 }
 
 
@@ -13,7 +13,7 @@ resource "azurerm_network_security_group" "example_app" {
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
-  
+
 }
 
 resource "azurerm_subnet_network_security_group_association" "example_app" {
@@ -22,10 +22,10 @@ resource "azurerm_subnet_network_security_group_association" "example_app" {
 }
 
 locals {
-  app_inbound_ports_map= {
+  app_inbound_ports_map = {
     "100" : "80",
-    "110": "443",
-    "120":"33"
+    "110" : "443",
+    "120" : "33"
 
 
 
@@ -34,6 +34,7 @@ locals {
 
 
 resource "azurerm_network_security_rule" "example_app" {
+  for_each=local.app_inbound_ports_map
   name                        = "PORT_Name-${each.value}"
   priority                    = each.key
   direction                   = "Outbound"

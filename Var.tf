@@ -20,7 +20,10 @@ variable "Virtual_Network_Name" {
     type = string
     
 }
-
+variable "Address_space" {
+    description = "Please mention the Vnet  Name"
+    type = list(string)
+}
 
 
 variable "subnet_address_list__app" {
@@ -102,3 +105,4 @@ variable "environment" {
     type = string
   
 }
+
