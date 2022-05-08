@@ -66,15 +66,27 @@ variable "Subnet_Name_web_server" {
 }
 
 
+variable "Network_security_Name_app" {
+    description = "Please mention the Vnet  Name"
+    type = string
+    
+}
 
 
+variable "Network_security_Name_Bastion" {
+    description = "Please mention the Vnet  Name"
+    type = string
+    
+}
+
+variable "Network_security_Name_web_server" {
+    description = "Please mention the Vnet  Name"
+    type = string
+    
+}
 
 
-
-
-
-
-variable "Network_security_Name" {
+variable "Network_security_Name_db" {
     description = "Please mention the Vnet  Name"
     type = string
     
