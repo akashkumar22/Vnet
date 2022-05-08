@@ -4,6 +4,8 @@ resource "azurerm_virtual_network" "example" {
   resource_group_name = var.Resource_Group_Name
   address_space       = var.Address_space
 
-
+  depends_on = [
+    azurerm_resource_group.example,
+  ]
 
 }

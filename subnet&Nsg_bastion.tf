@@ -30,12 +30,12 @@ locals {
 resource "azurerm_network_security_rule" "example_bastion" {
   for_each=local.bastion_inbound_ports_map
   name                        = "Port_name-${each.value}"
-  priority                    = each.value
+  priority                    = each.key
   direction                   = "Outbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = each.key
+  destination_port_range      = each.value
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.example.name
